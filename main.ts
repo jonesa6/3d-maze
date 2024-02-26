@@ -2,9 +2,11 @@ namespace SpriteKind {
     export const star = SpriteKind.create()
     export const star2 = SpriteKind.create()
     export const ultimate_star_rainbow = SpriteKind.create()
+    export const star3 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.ultimate_star_rainbow, function (sprite, otherSprite) {
-    carnival.onGameOverExpanded(carnival.WinTypes.Timed)
+    game.setGameOverMessage(true, "you had completed the game in " + sec + " seconds")
+    game.gameOver(true)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.move(mySprite, 100, -100)
@@ -12,6 +14,52 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite, otherSprite) {
     sprites.destroy(mySprite3)
     tiles.setCurrentTilemap(tilemap`level5`)
+    mySprite5 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 9 9 . . . . . . . 
+        . . . . . . . 9 9 . . . . . . . 
+        . . . . . . 9 9 9 9 . . . . . . 
+        . . . . . . 9 9 9 9 . . . . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . 9 9 9 9 9 9 9 9 9 9 9 9 9 9 . 
+        . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
+        . . . . 9 9 9 9 9 9 9 9 . . . . 
+        . . . . . . 9 9 9 9 . . . . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . . . . 9 9 9 . . 9 9 9 . . . . 
+        . . . 9 9 9 . . . . 9 9 9 . . . 
+        . . . 9 9 . . . . . . 9 9 . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.star3)
+    tiles.placeOnTile(mySprite5, tiles.getTileLocation(49, 49))
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.star, function (sprite, otherSprite) {
+    sprites.destroy(mySprite2)
+    tiles.setCurrentTilemap(tilemap`level3`)
+    mySprite3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . 2 2 2 2 . . . . . . 
+        . . . . . . 2 2 2 2 . . . . . . 
+        . . . . . 2 2 2 2 2 2 . . . . . 
+        . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+        . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+        . . . . 2 2 2 2 2 2 2 2 . . . . 
+        . . . . . . 2 2 2 2 . . . . . . 
+        . . . . . 2 2 2 2 2 2 . . . . . 
+        . . . . . 2 2 2 2 2 2 . . . . . 
+        . . . . 2 2 2 . . 2 2 2 . . . . 
+        . . . 2 2 2 . . . . 2 2 2 . . . 
+        . . . 2 2 . . . . . . 2 2 . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.star2)
+    tiles.placeOnTile(mySprite3, tiles.getTileLocation(32, 24))
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.star3, function (sprite, otherSprite) {
+    sprites.destroy(mySprite5)
+    tiles.setCurrentTilemap(tilemap`level19`)
     mySprite4 = sprites.create(img`
         ................................
         ................................
@@ -46,33 +94,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite, otherSp
         ................................
         ................................
         `, SpriteKind.ultimate_star_rainbow)
-    mySprite4.setPosition(16, 6)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.star, function (sprite, otherSprite) {
-    sprites.destroy(mySprite2)
-    tiles.setCurrentTilemap(tilemap`level3`)
-    mySprite3 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . . . 2 2 2 2 . . . . . . 
-        . . . . . . 2 2 2 2 . . . . . . 
-        . . . . . 2 2 2 2 2 2 . . . . . 
-        . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-        . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-        . . . . 2 2 2 2 2 2 2 2 . . . . 
-        . . . . . . 2 2 2 2 . . . . . . 
-        . . . . . 2 2 2 2 2 2 . . . . . 
-        . . . . . 2 2 2 2 2 2 . . . . . 
-        . . . . 2 2 2 . . 2 2 2 . . . . 
-        . . . 2 2 2 . . . . 2 2 2 . . . 
-        . . . 2 2 . . . . . . 2 2 . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.star2)
-    mySprite3.setPosition(19, 0)
+    tiles.placeOnTile(mySprite4, tiles.getTileLocation(22, 26))
 })
 let mySprite4: Sprite = null
+let mySprite5: Sprite = null
 let mySprite3: Sprite = null
+let sec = 0
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -95,7 +122,7 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite = Render.getRenderSpriteVariable()
 tiles.setCurrentTilemap(tilemap`level2`)
-Render.moveWithController(1, 1, 1)
+Render.moveWithController(3, 2, 1)
 Render.setAttribute(Render.attribute.fov, 0.66)
 Render.setAttribute(Render.attribute.dirX, 0.66)
 Render.setAttribute(Render.attribute.dirY, 0.66)
@@ -119,6 +146,13 @@ mySprite2 = sprites.create(img`
     . . . . 5 . . . . . . 5 5 . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.star)
-mySprite2.setPosition(12, 10)
-carnival.startTimer()
-carnival.showTimer(false)
+tiles.placeOnTile(mySprite2, tiles.getTileLocation(60, 3))
+sec = 0
+let bo_calc = 0
+game.onUpdate(function () {
+    bo_calc = game.runtime()
+    if (bo_calc == 1000) {
+        sec += 1
+        bo_calc = 0
+    }
+})
