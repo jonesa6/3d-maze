@@ -148,11 +148,11 @@ mySprite = sprites.create(img`
 mySprite = Render.getRenderSpriteVariable()
 tiles.setCurrentTilemap(tilemap`level2`)
 Render.moveWithController(3, 2, 1)
-Render.setAttribute(Render.attribute.fov, 0.66)
+Render.setAttribute(Render.attribute.fov, 1.66)
 Render.setAttribute(Render.attribute.dirX, 0.066)
 Render.setAttribute(Render.attribute.dirY, 0.066)
 Render.setAttribute(Render.attribute.wallZScale, 1.66)
-Render.setViewAngleInDegree(1)
+Render.setViewAngleInDegree(360)
 mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . 5 5 . . . . . . . 
@@ -176,7 +176,7 @@ sec = 0
 let seconds_calculating = 0
 game.onUpdate(function () {
     seconds_calculating = game.runtime()
-    if (seconds_calculating == 1000) {
+    if (seconds_calculating > 1000) {
         sec += 1
         seconds_calculating = 0
     }
