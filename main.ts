@@ -148,11 +148,11 @@ mySprite = sprites.create(img`
 mySprite = Render.getRenderSpriteVariable()
 tiles.setCurrentTilemap(tilemap`level2`)
 Render.moveWithController(3, 2, 1)
-Render.setAttribute(Render.attribute.fov, 1.66)
+Render.setAttribute(Render.attribute.fov, 0.66)
 Render.setAttribute(Render.attribute.dirX, 0.066)
 Render.setAttribute(Render.attribute.dirY, 0.066)
 Render.setAttribute(Render.attribute.wallZScale, 1.66)
-Render.setViewAngleInDegree(360)
+Render.setViewAngleInDegree(17)
 mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . 5 5 . . . . . . . 
