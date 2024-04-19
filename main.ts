@@ -11,21 +11,21 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.ultimate_star_rainbow, function 
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.setAttribute(Render.attribute.fov, 0.9)
-    timer.after(50, function () {
+    timer.after(30, function () {
         Render.setAttribute(Render.attribute.fov, 0.8)
-        timer.after(50, function () {
+        timer.after(30, function () {
             Render.setAttribute(Render.attribute.fov, 0.7)
-            timer.after(50, function () {
+            timer.after(30, function () {
                 Render.setAttribute(Render.attribute.fov, 0.6)
-                timer.after(50, function () {
+                timer.after(30, function () {
                     Render.setAttribute(Render.attribute.fov, 0.5)
-                    timer.after(50, function () {
+                    timer.after(30, function () {
                         Render.setAttribute(Render.attribute.fov, 0.4)
-                        timer.after(50, function () {
+                        timer.after(30, function () {
                             Render.setAttribute(Render.attribute.fov, 0.3)
-                            timer.after(50, function () {
+                            timer.after(30, function () {
                                 Render.setAttribute(Render.attribute.fov, 0.2)
-                                timer.after(50, function () {
+                                timer.after(30, function () {
                                     Render.setAttribute(Render.attribute.fov, 0.1)
                                 })
                             })
@@ -103,15 +103,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite, otherSp
 })
 controller.B.onEvent(ControllerButtonEvent.Released, function () {
     Render.setAttribute(Render.attribute.fov, 0.2)
-    timer.after(50, function () {
+    timer.after(30, function () {
         Render.setAttribute(Render.attribute.fov, 0.3)
-        timer.after(50, function () {
+        timer.after(30, function () {
             Render.setAttribute(Render.attribute.fov, 0.4)
-            timer.after(50, function () {
+            timer.after(30, function () {
                 Render.setAttribute(Render.attribute.fov, 0.5)
-                timer.after(50, function () {
+                timer.after(30, function () {
                     Render.setAttribute(Render.attribute.fov, 0.6)
-                    timer.after(50, function () {
+                    timer.after(30, function () {
                         Render.setAttribute(Render.attribute.fov, 1)
                     })
                 })
