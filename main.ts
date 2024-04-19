@@ -10,9 +10,30 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.ultimate_star_rainbow, function 
     game.gameOver(true)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    Render.setAttribute(Render.attribute.fov, 0.5)
-    timer.after(100, function () {
-        Render.setAttribute(Render.attribute.fov, 0.1)
+    Render.setAttribute(Render.attribute.fov, 0.9)
+    timer.after(50, function () {
+        Render.setAttribute(Render.attribute.fov, 0.8)
+        timer.after(50, function () {
+            Render.setAttribute(Render.attribute.fov, 0.7)
+            timer.after(50, function () {
+                Render.setAttribute(Render.attribute.fov, 0.6)
+                timer.after(50, function () {
+                    Render.setAttribute(Render.attribute.fov, 0.5)
+                    timer.after(50, function () {
+                        Render.setAttribute(Render.attribute.fov, 0.4)
+                        timer.after(50, function () {
+                            Render.setAttribute(Render.attribute.fov, 0.3)
+                            timer.after(50, function () {
+                                Render.setAttribute(Render.attribute.fov, 0.2)
+                                timer.after(50, function () {
+                                    Render.setAttribute(Render.attribute.fov, 0.1)
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
     })
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -22,22 +43,38 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.star4, function (sprite, otherSp
     sprites.destroy(mySprite6)
     tiles.setCurrentTilemap(tilemap`level18`)
     mySprite4 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 7 8 . . . . . . . 
-        . . . . . . . 7 8 . . . . . . . 
-        . . . . . . 6 7 8 9 . . . . . . 
-        . . . . . 5 6 7 8 9 a . . . . . 
-        . f 2 3 4 5 6 7 8 9 a b c d f . 
-        . . 2 3 4 5 6 7 8 9 a b c d . . 
-        . . . . 4 5 6 7 8 9 a b . . . . 
-        . . . . . . 6 7 8 9 . . . . . . 
-        . . . . . 5 6 7 8 9 a . . . . . 
-        . . . . . 5 6 7 8 9 a . . . . . 
-        . . . . 4 5 6 7 8 9 a b . . . . 
-        . . . 3 4 5 6 . . 9 a b c . . . 
-        . . . 3 4 . . . . . . b c . . . 
-        . . . . . . . . . . . . . . . . 
+        ................................
+        ................................
+        ................4...............
+        ...............444..............
+        ..............44444.............
+        .............2444444............
+        ............22444445............
+        ............224444555...........
+        ...........22444445555..........
+        ..........2244444555557.........
+        .........22244445555557.........
+        ........2224444455555777........
+        ......2222444445555577777.......
+        ..2222222244445555577777999999..
+        ...22222244444555577779999999...
+        ....222224444555577779999999....
+        ......22444455557777999999......
+        .......244445557777999999.......
+        ........4445555777799999........
+        ..........555577777999..........
+        ...........5577779999...........
+        ...........5577779999...........
+        ...........7777799999...........
+        ..........77777..999aa..........
+        ..........7777....9aaa..........
+        .........7777......aaaa.........
+        .........77.........aaa.........
+        ........77...........aaa........
+        ........7.............aa........
+        .......7...............aa.......
+        ................................
+        ................................
         `, SpriteKind.ultimate_star_rainbow)
     tiles.placeOnTile(mySprite4, tiles.getTileLocation(51, 49))
 })
@@ -65,7 +102,22 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite, otherSp
     tiles.placeOnTile(mySprite5, tiles.getTileLocation(49, 49))
 })
 controller.B.onEvent(ControllerButtonEvent.Released, function () {
-    Render.setAttribute(Render.attribute.fov, 1)
+    Render.setAttribute(Render.attribute.fov, 0.2)
+    timer.after(50, function () {
+        Render.setAttribute(Render.attribute.fov, 0.3)
+        timer.after(50, function () {
+            Render.setAttribute(Render.attribute.fov, 0.4)
+            timer.after(50, function () {
+                Render.setAttribute(Render.attribute.fov, 0.5)
+                timer.after(50, function () {
+                    Render.setAttribute(Render.attribute.fov, 0.6)
+                    timer.after(50, function () {
+                        Render.setAttribute(Render.attribute.fov, 1)
+                    })
+                })
+            })
+        })
+    })
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.star, function (sprite, otherSprite) {
     sprites.destroy(mySprite2)
