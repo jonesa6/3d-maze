@@ -11,7 +11,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.ultimate_star_rainbow, function 
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.setAttribute(Render.attribute.fov, 0.5)
-    timer.after(50, function () {
+    timer.after(100, function () {
         Render.setAttribute(Render.attribute.fov, 0.1)
     })
 })
@@ -143,8 +143,8 @@ mySprite = Render.getRenderSpriteVariable()
 tiles.setCurrentTilemap(tilemap`level2`)
 Render.moveWithController(3, 2, 1)
 Render.setAttribute(Render.attribute.fov, 1)
-Render.setAttribute(Render.attribute.dirX, 0.066)
-Render.setAttribute(Render.attribute.dirY, 0.066)
+Render.setAttribute(Render.attribute.dirX, 10)
+Render.setAttribute(Render.attribute.dirY, 10)
 Render.setAttribute(Render.attribute.wallZScale, 1.6)
 Render.setViewAngleInDegree(0)
 mySprite2 = sprites.create(img`
