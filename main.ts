@@ -6,7 +6,7 @@ namespace SpriteKind {
     export const star4 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.ultimate_star_rainbow, function (sprite, otherSprite) {
-    game.setGameOverMessage(true, "Congrats you finished in" + sec + "secs")
+    game.setGameOverMessage(true, "Congrats you finished in " + game.runtime() + " ms")
     game.gameOver(true)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -117,7 +117,6 @@ let mySprite5: Sprite = null
 let mySprite3: Sprite = null
 let mySprite4: Sprite = null
 let mySprite6: Sprite = null
-let sec = 0
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 game.showLongText("Welcome to 3D Mazes. Use WASD to move or arrows, press A to jump. B to zoom", DialogLayout.Full)
@@ -166,15 +165,6 @@ mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.star)
 tiles.placeOnTile(mySprite2, tiles.getTileLocation(60, 3))
-sec = 0
-let seconds_calculating = 0
-game.onUpdate(function () {
-    seconds_calculating = game.runtime() - sec * 1000
-    if (seconds_calculating == 1000) {
-        sec += 1
-        seconds_calculating = 0
-    }
-})
 game.onUpdateInterval(500, function () {
     if (characterAnimations.matchesRule(mySprite, characterAnimations.rule(Predicate.Moving))) {
         animation.runImageAnimation(
