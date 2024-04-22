@@ -171,7 +171,12 @@ let mySprite4: Sprite = null
 let mySprite6: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
+Render.setViewMode(ViewMode.tilemapView)
 game.showLongText("Welcome to 3D Mazes. Use WASD to move or arrows, press A to jump. B to zoom", DialogLayout.Full)
+if (game.ask("Do you want a ", "tutorial")) {
+    game.showLongText("The goal of each level is to collect a star. You will find arrows along the way that will guide you in the right direction. ", DialogLayout.Bottom)
+}
+Render.setViewMode(ViewMode.raycastingView)
 mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -198,6 +203,7 @@ Render.setAttribute(Render.attribute.dirX, 10)
 Render.setAttribute(Render.attribute.dirY, 10)
 Render.setAttribute(Render.attribute.wallZScale, 1.6)
 Render.setViewAngleInDegree(0)
+Render.setSpriteAttribute(mySprite, RCSpriteAttribute.ZOffset, randint(0, 7))
 mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . 5 5 . . . . . . . 
