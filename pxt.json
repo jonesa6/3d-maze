@@ -1,6 +1,6 @@
 {
     "name": "3d mazes",
-    "version": "1.7.2",
+    "version": "1.8.0",
     "description": "a 3d game where you collect stars in mazes",
     "dependencies": {
         "device": "*",
