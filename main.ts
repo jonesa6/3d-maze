@@ -6,7 +6,7 @@ namespace SpriteKind {
     export const star4 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.ultimate_star_rainbow, function (sprite, otherSprite) {
-    game.setGameOverMessage(true, "Congrats you finished in " + game.runtime() + " ms")
+    game.setGameOverMessage(true, "Congrats you finished in " + ("" + game.runtime()) + " ms")
     game.gameOver(true)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -39,7 +39,71 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     Render.move(mySprite, 100, -100)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.star4, function (sprite, otherSprite) {
+controller.B.onEvent(ControllerButtonEvent.Released, function () {
+    Render.setAttribute(Render.attribute.fov, 0.2)
+    timer.after(30, function () {
+        Render.setAttribute(Render.attribute.fov, 0.3)
+        timer.after(30, function () {
+            Render.setAttribute(Render.attribute.fov, 0.4)
+            timer.after(30, function () {
+                Render.setAttribute(Render.attribute.fov, 0.5)
+                timer.after(30, function () {
+                    Render.setAttribute(Render.attribute.fov, 0.6)
+                    timer.after(30, function () {
+                        Render.setAttribute(Render.attribute.fov, 1)
+                    })
+                })
+            })
+        })
+    })
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.star, function (sprite4, otherSprite4) {
+    sprites.destroy(mySprite2)
+    tiles.setCurrentTilemap(tilemap`level3`)
+    mySprite3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . . 2 2 . . . . . . . 
+        . . . . . . 2 2 2 2 . . . . . . 
+        . . . . . . 2 2 2 2 . . . . . . 
+        . . . . . 2 2 2 2 2 2 . . . . . 
+        . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+        . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+        . . . . 2 2 2 2 2 2 2 2 . . . . 
+        . . . . . . 2 2 2 2 . . . . . . 
+        . . . . . 2 2 2 2 2 2 . . . . . 
+        . . . . . 2 2 2 2 2 2 . . . . . 
+        . . . . 2 2 2 . . 2 2 2 . . . . 
+        . . . 2 2 2 . . . . 2 2 2 . . . 
+        . . . 2 2 . . . . . . 2 2 . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.star2)
+    tiles.placeOnTile(mySprite3, tiles.getTileLocation(32, 24))
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.star3, function (sprite5, otherSprite5) {
+    sprites.destroy(mySprite5)
+    mySprite6 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 7 7 . . . . . . . 
+        . . . . . . . 7 7 . . . . . . . 
+        . . . . . . 7 7 7 7 . . . . . . 
+        . . . . . . 7 7 7 7 . . . . . . 
+        . . . . . 7 7 7 7 7 7 . . . . . 
+        . 7 7 7 7 7 7 7 7 7 7 7 7 7 7 . 
+        . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+        . . . . 7 7 7 7 7 7 7 7 . . . . 
+        . . . . . . 7 7 7 7 . . . . . . 
+        . . . . . 7 7 7 7 7 7 . . . . . 
+        . . . . . 7 7 7 7 7 7 . . . . . 
+        . . . . 7 7 7 . . 7 7 7 . . . . 
+        . . . 7 7 7 . . . . 7 7 7 . . . 
+        . . . 7 7 . . . . . . 7 7 . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.star4)
+    tiles.setCurrentTilemap(tilemap`level19`)
+    tiles.placeOnTile(mySprite6, tiles.getTileLocation(22, 26))
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.star4, function (sprite2, otherSprite2) {
     sprites.destroy(mySprite6)
     tiles.setCurrentTilemap(tilemap`level18`)
     mySprite4 = sprites.create(img`
@@ -78,7 +142,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.star4, function (sprite, otherSp
         `, SpriteKind.ultimate_star_rainbow)
     tiles.placeOnTile(mySprite4, tiles.getTileLocation(51, 49))
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite3, otherSprite3) {
     sprites.destroy(mySprite3)
     tiles.setCurrentTilemap(tilemap`level5`)
     mySprite5 = sprites.create(img`
@@ -101,74 +165,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.star2, function (sprite, otherSp
         `, SpriteKind.star3)
     tiles.placeOnTile(mySprite5, tiles.getTileLocation(49, 49))
 })
-controller.B.onEvent(ControllerButtonEvent.Released, function () {
-    Render.setAttribute(Render.attribute.fov, 0.2)
-    timer.after(30, function () {
-        Render.setAttribute(Render.attribute.fov, 0.3)
-        timer.after(30, function () {
-            Render.setAttribute(Render.attribute.fov, 0.4)
-            timer.after(30, function () {
-                Render.setAttribute(Render.attribute.fov, 0.5)
-                timer.after(30, function () {
-                    Render.setAttribute(Render.attribute.fov, 0.6)
-                    timer.after(30, function () {
-                        Render.setAttribute(Render.attribute.fov, 1)
-                    })
-                })
-            })
-        })
-    })
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.star, function (sprite, otherSprite) {
-    sprites.destroy(mySprite2)
-    tiles.setCurrentTilemap(tilemap`level3`)
-    mySprite3 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . . . 2 2 2 2 . . . . . . 
-        . . . . . . 2 2 2 2 . . . . . . 
-        . . . . . 2 2 2 2 2 2 . . . . . 
-        . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-        . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-        . . . . 2 2 2 2 2 2 2 2 . . . . 
-        . . . . . . 2 2 2 2 . . . . . . 
-        . . . . . 2 2 2 2 2 2 . . . . . 
-        . . . . . 2 2 2 2 2 2 . . . . . 
-        . . . . 2 2 2 . . 2 2 2 . . . . 
-        . . . 2 2 2 . . . . 2 2 2 . . . 
-        . . . 2 2 . . . . . . 2 2 . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.star2)
-    tiles.placeOnTile(mySprite3, tiles.getTileLocation(32, 24))
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.star3, function (sprite, otherSprite) {
-    sprites.destroy(mySprite5)
-    mySprite6 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 7 7 . . . . . . . 
-        . . . . . . . 7 7 . . . . . . . 
-        . . . . . . 7 7 7 7 . . . . . . 
-        . . . . . . 7 7 7 7 . . . . . . 
-        . . . . . 7 7 7 7 7 7 . . . . . 
-        . 7 7 7 7 7 7 7 7 7 7 7 7 7 7 . 
-        . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
-        . . . . 7 7 7 7 7 7 7 7 . . . . 
-        . . . . . . 7 7 7 7 . . . . . . 
-        . . . . . 7 7 7 7 7 7 . . . . . 
-        . . . . . 7 7 7 7 7 7 . . . . . 
-        . . . . 7 7 7 . . 7 7 7 . . . . 
-        . . . 7 7 7 . . . . 7 7 7 . . . 
-        . . . 7 7 . . . . . . 7 7 . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.star4)
-    tiles.setCurrentTilemap(tilemap`level19`)
-    tiles.placeOnTile(mySprite6, tiles.getTileLocation(22, 26))
-})
-let mySprite5: Sprite = null
-let mySprite3: Sprite = null
 let mySprite4: Sprite = null
 let mySprite6: Sprite = null
+let mySprite5: Sprite = null
+let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 Render.setViewMode(ViewMode.tilemapView)
