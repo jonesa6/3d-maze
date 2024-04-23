@@ -256,7 +256,7 @@ tiles.set_current_tilemap(tilemap("""
     level2
 """))
 Render.move_with_controller(3, 2, 1)
-Render.set_attribute(Render.attribute.FOV, 1)
+Render.set_attribute(Render.attribute.FOV, 10)
 Render.set_attribute(Render.attribute.DIR_X, 10)
 Render.set_attribute(Render.attribute.DIR_Y, 10)
 Render.set_attribute(Render.attribute.WALL_ZSCALE, 1.6)
