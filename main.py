@@ -8,7 +8,7 @@ class SpriteKind:
 
 def on_on_overlap(sprite, otherSprite):
     game.set_game_over_message(True,
-        "Congrats you finished in " + str(game.runtime()) + " ms")
+        "Congrats you finished in " + ("" + str(game.runtime())) + " ms")
     game.game_over(True)
 sprites.on_overlap(SpriteKind.player,
     SpriteKind.ultimate_star_rainbow,
@@ -62,7 +62,92 @@ def on_a_pressed():
     Render.move(mySprite, 100, -100)
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 
-def on_on_overlap2(sprite2, otherSprite2):
+def on_b_released():
+    Render.set_attribute(Render.attribute.FOV, 0.2)
+    
+    def on_after9():
+        Render.set_attribute(Render.attribute.FOV, 0.3)
+        
+        def on_after10():
+            Render.set_attribute(Render.attribute.FOV, 0.4)
+            
+            def on_after11():
+                Render.set_attribute(Render.attribute.FOV, 0.5)
+                
+                def on_after12():
+                    Render.set_attribute(Render.attribute.FOV, 0.6)
+                    
+                    def on_after13():
+                        Render.set_attribute(Render.attribute.FOV, 1)
+                    timer.after(30, on_after13)
+                    
+                timer.after(30, on_after12)
+                
+            timer.after(30, on_after11)
+            
+        timer.after(30, on_after10)
+        
+    timer.after(30, on_after9)
+    
+controller.B.on_event(ControllerButtonEvent.RELEASED, on_b_released)
+
+def on_on_overlap2(sprite4, otherSprite4):
+    global mySprite3
+    sprites.destroy(mySprite2)
+    tiles.set_current_tilemap(tilemap("""
+        level3
+    """))
+    mySprite3 = sprites.create(img("""
+            . . . . . . . . . . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . . 2 2 . . . . . . . 
+                    . . . . . . 2 2 2 2 . . . . . . 
+                    . . . . . . 2 2 2 2 . . . . . . 
+                    . . . . . 2 2 2 2 2 2 . . . . . 
+                    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
+                    . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+                    . . . . 2 2 2 2 2 2 2 2 . . . . 
+                    . . . . . . 2 2 2 2 . . . . . . 
+                    . . . . . 2 2 2 2 2 2 . . . . . 
+                    . . . . . 2 2 2 2 2 2 . . . . . 
+                    . . . . 2 2 2 . . 2 2 2 . . . . 
+                    . . . 2 2 2 . . . . 2 2 2 . . . 
+                    . . . 2 2 . . . . . . 2 2 . . . 
+                    . . . . . . . . . . . . . . . .
+        """),
+        SpriteKind.star2)
+    tiles.place_on_tile(mySprite3, tiles.get_tile_location(32, 24))
+sprites.on_overlap(SpriteKind.player, SpriteKind.star, on_on_overlap2)
+
+def on_on_overlap3(sprite5, otherSprite5):
+    global mySprite6
+    sprites.destroy(mySprite5)
+    mySprite6 = sprites.create(img("""
+            . . . . . . . . . . . . . . . . 
+                    . . . . . . . 7 7 . . . . . . . 
+                    . . . . . . . 7 7 . . . . . . . 
+                    . . . . . . 7 7 7 7 . . . . . . 
+                    . . . . . . 7 7 7 7 . . . . . . 
+                    . . . . . 7 7 7 7 7 7 . . . . . 
+                    . 7 7 7 7 7 7 7 7 7 7 7 7 7 7 . 
+                    . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+                    . . . . 7 7 7 7 7 7 7 7 . . . . 
+                    . . . . . . 7 7 7 7 . . . . . . 
+                    . . . . . 7 7 7 7 7 7 . . . . . 
+                    . . . . . 7 7 7 7 7 7 . . . . . 
+                    . . . . 7 7 7 . . 7 7 7 . . . . 
+                    . . . 7 7 7 . . . . 7 7 7 . . . 
+                    . . . 7 7 . . . . . . 7 7 . . . 
+                    . . . . . . . . . . . . . . . .
+        """),
+        SpriteKind.star4)
+    tiles.set_current_tilemap(tilemap("""
+        level19
+    """))
+    tiles.place_on_tile(mySprite6, tiles.get_tile_location(22, 26))
+sprites.on_overlap(SpriteKind.player, SpriteKind.star3, on_on_overlap3)
+
+def on_on_overlap4(sprite2, otherSprite2):
     global mySprite4
     sprites.destroy(mySprite6)
     tiles.set_current_tilemap(tilemap("""
@@ -104,9 +189,9 @@ def on_on_overlap2(sprite2, otherSprite2):
         """),
         SpriteKind.ultimate_star_rainbow)
     tiles.place_on_tile(mySprite4, tiles.get_tile_location(51, 49))
-sprites.on_overlap(SpriteKind.player, SpriteKind.star4, on_on_overlap2)
+sprites.on_overlap(SpriteKind.player, SpriteKind.star4, on_on_overlap4)
 
-def on_on_overlap3(sprite3, otherSprite3):
+def on_on_overlap5(sprite3, otherSprite3):
     global mySprite5
     sprites.destroy(mySprite3)
     tiles.set_current_tilemap(tilemap("""
@@ -132,97 +217,12 @@ def on_on_overlap3(sprite3, otherSprite3):
         """),
         SpriteKind.star3)
     tiles.place_on_tile(mySprite5, tiles.get_tile_location(49, 49))
-sprites.on_overlap(SpriteKind.player, SpriteKind.star2, on_on_overlap3)
+sprites.on_overlap(SpriteKind.player, SpriteKind.star2, on_on_overlap5)
 
-def on_b_released():
-    Render.set_attribute(Render.attribute.FOV, 0.2)
-    
-    def on_after9():
-        Render.set_attribute(Render.attribute.FOV, 0.3)
-        
-        def on_after10():
-            Render.set_attribute(Render.attribute.FOV, 0.4)
-            
-            def on_after11():
-                Render.set_attribute(Render.attribute.FOV, 0.5)
-                
-                def on_after12():
-                    Render.set_attribute(Render.attribute.FOV, 0.6)
-                    
-                    def on_after13():
-                        Render.set_attribute(Render.attribute.FOV, 1)
-                    timer.after(30, on_after13)
-                    
-                timer.after(30, on_after12)
-                
-            timer.after(30, on_after11)
-            
-        timer.after(30, on_after10)
-        
-    timer.after(30, on_after9)
-    
-controller.B.on_event(ControllerButtonEvent.RELEASED, on_b_released)
-
-def on_on_overlap4(sprite4, otherSprite4):
-    global mySprite3
-    sprites.destroy(mySprite2)
-    tiles.set_current_tilemap(tilemap("""
-        level3
-    """))
-    mySprite3 = sprites.create(img("""
-            . . . . . . . . . . . . . . . . 
-                    . . . . . . . 2 2 . . . . . . . 
-                    . . . . . . . 2 2 . . . . . . . 
-                    . . . . . . 2 2 2 2 . . . . . . 
-                    . . . . . . 2 2 2 2 . . . . . . 
-                    . . . . . 2 2 2 2 2 2 . . . . . 
-                    . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 
-                    . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-                    . . . . 2 2 2 2 2 2 2 2 . . . . 
-                    . . . . . . 2 2 2 2 . . . . . . 
-                    . . . . . 2 2 2 2 2 2 . . . . . 
-                    . . . . . 2 2 2 2 2 2 . . . . . 
-                    . . . . 2 2 2 . . 2 2 2 . . . . 
-                    . . . 2 2 2 . . . . 2 2 2 . . . 
-                    . . . 2 2 . . . . . . 2 2 . . . 
-                    . . . . . . . . . . . . . . . .
-        """),
-        SpriteKind.star2)
-    tiles.place_on_tile(mySprite3, tiles.get_tile_location(32, 24))
-sprites.on_overlap(SpriteKind.player, SpriteKind.star, on_on_overlap4)
-
-def on_on_overlap5(sprite5, otherSprite5):
-    global mySprite6
-    sprites.destroy(mySprite5)
-    mySprite6 = sprites.create(img("""
-            . . . . . . . . . . . . . . . . 
-                    . . . . . . . 7 7 . . . . . . . 
-                    . . . . . . . 7 7 . . . . . . . 
-                    . . . . . . 7 7 7 7 . . . . . . 
-                    . . . . . . 7 7 7 7 . . . . . . 
-                    . . . . . 7 7 7 7 7 7 . . . . . 
-                    . 7 7 7 7 7 7 7 7 7 7 7 7 7 7 . 
-                    . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
-                    . . . . 7 7 7 7 7 7 7 7 . . . . 
-                    . . . . . . 7 7 7 7 . . . . . . 
-                    . . . . . 7 7 7 7 7 7 . . . . . 
-                    . . . . . 7 7 7 7 7 7 . . . . . 
-                    . . . . 7 7 7 . . 7 7 7 . . . . 
-                    . . . 7 7 7 . . . . 7 7 7 . . . 
-                    . . . 7 7 . . . . . . 7 7 . . . 
-                    . . . . . . . . . . . . . . . .
-        """),
-        SpriteKind.star4)
-    tiles.set_current_tilemap(tilemap("""
-        level19
-    """))
-    tiles.place_on_tile(mySprite6, tiles.get_tile_location(22, 26))
-sprites.on_overlap(SpriteKind.player, SpriteKind.star3, on_on_overlap5)
-
-mySprite5: Sprite = None
-mySprite3: Sprite = None
 mySprite4: Sprite = None
 mySprite6: Sprite = None
+mySprite5: Sprite = None
+mySprite3: Sprite = None
 mySprite2: Sprite = None
 mySprite: Sprite = None
 Render.set_view_mode(ViewMode.TILEMAP_VIEW)
