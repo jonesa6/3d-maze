@@ -225,7 +225,7 @@ mySprite = sprites.create(img`
 mySprite = Render.getRenderSpriteVariable()
 tiles.setCurrentTilemap(tilemap`level2`)
 Render.moveWithController(3, 2, 1)
-Render.setAttribute(Render.attribute.fov, 10)
+Render.setAttribute(Render.attribute.fov, 1)
 Render.setAttribute(Render.attribute.dirX, 10)
 Render.setAttribute(Render.attribute.dirY, 10)
 Render.setAttribute(Render.attribute.wallZScale, 1.6)
