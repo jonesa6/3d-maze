@@ -1,7 +1,7 @@
 {
-    "name": "3d maps",
+    "name": "3d mazes",
     "version": "1.6.2",
-    "description": "",
+    "description": "a 3d game where you collect stars in mazes",
     "dependencies": {
         "device": "*",
         "pxt-raycasting": "github:aqeeaqee/pxt-raycasting#v0.3.18",
