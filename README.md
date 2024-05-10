@@ -30,6 +30,7 @@ This image may take a few minutes to refresh.
 
 
 
-![arcade-3d-mazes](https://github.com/jonesa6/3d-mazes/assets/156232904/338539be-8558-485d-8d72-fa7e2bf341b8) this is a image of the game
-![arcade-3d-maps (5)](https://github.com/jonesa6/3d-mazes/assets/156232904/075490d3-d160-4b29-9150-ca1e1ba0cbd9)
+![arcade-3d-mazes](https://github.com/jonesa6/3d-mazes/assets/156232904/338539be-8558-485d-8d72-fa7e2bf341b8) 
+this is a image of the game
+![arcade-3d-maps (5)](https://github.com/jonesa6/3d-mazes/assets/156232904/31ea30d0-ce4e-40bb-8785-f7366319ea98)
 
